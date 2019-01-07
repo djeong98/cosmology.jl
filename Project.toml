@@ -1,0 +1,12 @@
+name = "cosmology"
+uuid = "d76fcdfc-12a3-11e9-05fd-bf6e15b1c72c"
+authors = ["DONGHUI JEONG <djeong@psu.edu>"]
+version = "0.1.0"
+
+[deps]
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
+Dierckx = "39dd38d3-220a-591b-8e3c-4c3a8c710a94"
+OrdinaryDiffEq = "1dea7af3-3e70-54e6-95c3-0bf5283fa5ed"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+QuadGK = "1fd47b50-473d-5c70-9696-f719f8f3bcdc"
+SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
