@@ -144,9 +144,17 @@ function cosParams{TP}(h=0.6778,Om=0.30821,Ode=0.69179;Ob=0.048555,wde=-1.,unit=
 
 	# the chiz function
 	if Tcmb>0
-		chizfname = @sprintf("chiz_Om=%6.4f_Ode=%6.4f_wde=%g_Nmnu=%g_Mnu=%g_radiation_on_unit="*unit*".dat",Om,Ode,wde,NnuMassive,sum(mnu))
+        if unit == "Mpc"
+		    chizfname = @sprintf("chiz_Om=%6.4f_Ode=%6.4f_wde=%g_Nmnu=%g_Mnu=%g_radiation_on_unit=Mpc.dat",Om,Ode,wde,NnuMassive,sum(mnu))
+        else
+		    chizfname = @sprintf("chiz_Om=%6.4f_Ode=%6.4f_wde=%g_Nmnu=%g_Mnu=%g_radiation_on_unit=Mpch.dat",Om,Ode,wde,NnuMassive,sum(mnu))
+        end
     else
-		chizfname = @sprintf("chiz_Om=%6.4f_Ode=%6.4f_wde=%g_Nmnu=%g_Mnu=%g_radiation_off_unit="*unit*".dat",Om,Ode,wde,NnuMassive,sum(mnu))
+        if unit == "Mpc"
+		    chizfname = @sprintf("chiz_Om=%6.4f_Ode=%6.4f_wde=%g_Nmnu=%g_Mnu=%g_radiation_off_unit=Mpc.dat",Om,Ode,wde,NnuMassive,sum(mnu))
+        else
+		    chizfname = @sprintf("chiz_Om=%6.4f_Ode=%6.4f_wde=%g_Nmnu=%g_Mnu=%g_radiation_off_unit=Mpch.dat",Om,Ode,wde,NnuMassive,sum(mnu))
+        end
 	end
 	chizfname = joinpath(folder,chizfname)
 	if ~isfile(chizfname) | calc_chiz
