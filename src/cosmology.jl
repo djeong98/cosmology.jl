@@ -44,28 +44,28 @@ const xnumax = 4000.
 const fxnuInfCoeff = 1.5*zeta(3.)
 const fnu0Val = 7/120*π^4.
 
-struct cosParams{TP<:AbstractFloat}
-	h::TP						# little h
-	Om::TP						# Omega_m now
-	Ocdm::TP					# Omeba_cdm now
-	Ob::TP						# Omeba_b now
-	Tnu::TP					# neutrino temperature now (in eV)
-	aMnu::Array{TP,1} 	# neutrino mass vector (in eV)
-	OnuMassive::TP			# Omega_nu now
-	OnuMassless::TP			# Omega_nu now
-	Ode::TP				# Omega_de now
-	wde::TP					# w_de now
-	Ok::TP					# Omega_curvature now
-	Og::TP					# Omega_photo
-	Hubble::TP			# prefactor for the distance (dimention 1/length)
-	fxnu::Function	# neutrino energy density function
-	fga::Spline1D		# growth of potential
-	fdga::Spline1D		# derivative of ga
-	fchiz::Spline1D		# chi(z)
-	fzchi::Spline1D		# z(chi)
+struct cosParams
+	h						# little h
+	Om						# Omega_m now
+	Ocdm					# Omeba_cdm now
+	Ob						# Omeba_b now
+	Tnu					    # neutrino temperature now (in eV)
+	aMnu                 	# array of the neutrino mass vector (in eV)
+	OnuMassive	    		# Omega_nu now
+	OnuMassless 			# Omega_nu now
+	Ode 			    	# Omega_de now
+	wde 					# w_de now
+	Ok  					# Omega_curvature now
+	Og  					# Omega_photo
+	Hubble  			    # prefactor for the distance (dimention 1/length)
+	fxnu::Function	        # neutrino energy density function
+	fga::Spline1D		    # growth of potential
+	fdga::Spline1D		    # derivative of ga
+	fchiz::Spline1D		    # chi(z)
+	fzchi::Spline1D		    # z(chi)
 end
 
-function cosParams{TP}(h=0.6778,Om=0.30821,Ode=0.69179;Ob=0.048555,wde=-1.,unit="Mpc/h",Tcmb=2.726,mnu=[0.06,0.,0.],calc_fxnu=false,calc_growth=false,calc_chiz=false) where {TP<:AbstractFloat}
+function cosParams(h=0.6778,Om=0.30821,Ode=0.69179;Ob=0.048555,wde=-1.,unit="Mpc/h",Tcmb=2.726,mnu=[0.06,0.,0.],calc_fxnu=false,calc_growth=false,calc_chiz=false) 
 	# Set the Unit
 	if unit == "Mpc/h"
 		Hubble = H0
