@@ -21,7 +21,7 @@ A Julia package for calculating cosmological quantities including distances, Hub
 ### From GitHub
 ```julia
 using Pkg
-Pkg.add(url="https://github.com/yourusername/cosmology.jl")
+Pkg.add("git@github.com:djeong98/cosmology.jl.git")
 ```
 
 ### Development Installation
