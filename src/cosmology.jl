@@ -24,7 +24,7 @@ using SpecialFunctions
 using Printf
 using DelimitedFiles
 
-export cosParams,dAcz,dlnDdlna,Hz,Omz,Odez,Okz,Volume,Dplusz
+export cosParams,dAcz,dlnDdlna,Hz,Omz,Odez,Okz,Volume,Dplusz,chiz,findz
 
 const H0 = 0.00033356   			# in unit of [h/Mpc]
 const speedOfLight = 3.0660e-7	# [Mpc/year]
@@ -65,7 +65,7 @@ struct cosParams
 	fzchi::Spline1D		    # z(chi)
 end
 
-function cosParams(h=0.6778,Om=0.30821,Ode=0.69179;Ob=0.048555,wde=-1.,unit="Mpc/h",Tcmb=2.726,mnu=[0.06,0.,0.],calc_fxnu=false,calc_growth=false,calc_chiz=false) 
+function cosParams(;h=0.6778,Om=0.30821,Ode=0.69179,Ob=0.048555,wde=-1.,unit="Mpc/h",Tcmb=2.726,mnu=[0.06,0.,0.],calc_fxnu=false,calc_growth=false,calc_chiz=false) 
 	# Set the Unit
 	if unit == "Mpc/h"
 		Hubble = H0
