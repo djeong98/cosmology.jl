@@ -24,7 +24,7 @@ using SpecialFunctions
 using Printf
 using DelimitedFiles
 
-export cosParams,dAcz,dlnDdlna,Hz,Omz,Odez,Okz,Volume,Dplusz,chiz,findz
+export cosParams,dAz,dLz,dAcz,dlnDdlna,Hz,Ha,Omz,Odez,Okz,Orz,Volume,Dplusz,chiz,findz
 
 const H0 = 0.00033356   			# in unit of [h/Mpc]
 const speedOfLight = 3.0660e-7	# [Mpc/year]

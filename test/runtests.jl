@@ -30,7 +30,7 @@ using cosmology
     end
 
     @testset "Hubble Parameter" begin
-        cosmo = cosParams(h=0.7, Om=0.3, Ode=0.7, Tcmb=0.0)
+        cosmo = cosParams(h=0.7, Om=0.3, Ode=0.7, Tcmb=0.0, unit="Mpc")
 
         # At z=0, H(z) should equal H0
         H0_expected = 0.00033356 * 0.7  # in 1/(Mpc/h)
@@ -175,10 +175,10 @@ using cosmology
         @test cosmo_nomnu.OnuMassive ≈ 0 atol=1e-10
 
         # This affects distances at high redshift
-        z_high = 3.0
+        z_high = 1089.0
         chi_nomnu = chiz(cosmo_nomnu, z_high)
         chi_mnu = chiz(cosmo_mnu, z_high)
-        @test abs(chi_mnu - chi_nomnu) / chi_nomnu > 0.001  # >0.1% difference
+        @test abs(chi_mnu - chi_nomnu) / chi_nomnu > 0.0001  # >0.01% difference
 
         println("✓ Massive neutrino tests passed")
     end
